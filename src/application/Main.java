@@ -15,14 +15,17 @@ public class Main {
 		do {
 			printMenu();
 			option = readInt("Choose an option: ");
-
-			switch (option) {
-			case 1 -> perfomAddition();
-			case 2 -> perfomSubtraction();
-			case 3 -> perfomMultiplication();
-			case 4 -> perfomDivision();
-			case 0 -> System.out.println("Exiting... Goodbye!");
-			default -> System.out.println("Invalid option! Please try again.");
+			try {
+				switch (option) {
+				case 1 -> perfomAddition();
+				case 2 -> perfomSubtraction();
+				case 3 -> perfomMultiplication();
+				case 4 -> perfomDivision();
+				case 0 -> System.out.println("Exiting... Goodbye!");
+				default -> System.out.println("Invalid option! Please try again.");
+				}
+			} catch (IllegalArgumentException e) {
+				System.out.println("Error: " + e.getMessage());
 			}
 		} while (option != 0);
 	}
