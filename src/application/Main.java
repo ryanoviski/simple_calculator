@@ -3,6 +3,8 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.Calculator;
+
 public class Main {
 
 	private static final Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
@@ -44,5 +46,45 @@ public class Main {
 				System.out.println("Invalid number, please enter an integer.");
 			}
 		}
+	}
+
+	private static double readDouble(String prompt) {
+		while (true) {
+			System.out.print(prompt);
+			String input = scanner.nextLine();
+			try {
+				return Double.parseDouble(input);
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid number, please enter a decimal number.");
+			}
+		}
+	}
+
+	private static void perfomAddition() {
+		double a = readDouble("Enter first number: ");
+		double b = readDouble("Enter second number: ");
+		double result = Calculator.add(a, b);
+		System.out.println("Result: " + result);
+	}
+
+	private static void perfomSubtraction() {
+		double a = readDouble("Enter first number: ");
+		double b = readDouble("Enter second number: ");
+		double result = Calculator.subtract(a, b);
+		System.out.println("Result: " + result);
+	}
+
+	private static void perfomMultiplication() {
+		double a = readDouble("Enter first number: ");
+		double b = readDouble("Enter second number: ");
+		double result = Calculator.multiply(a, b);
+		System.out.println("Result: " + result);
+	}
+
+	private static void perfomDivision() {
+		double a = readDouble("Enter first number: ");
+		double b = readDouble("Enter second number: ");
+		double result = Calculator.divide(a, b);
+		System.out.println("Result: " + result);
 	}
 }
